@@ -40,6 +40,17 @@ class Buck < Formula
     touch "ant-out/successful-build"
     # Now, build the Buck PEX archive with the Buck bootstrap.
     ohai "Building buck with buck"
+    system(
+      "./bin/buck",
+      "build",
+      "-c",
+      "buck.release_version=#{BUCK_VERSION}",
+      "-c",
+      "buck.release_timestamp=#{BUCK_RELEASE_TIMESTAMP}",
+      "--out",
+      "#{bin}/buck",
+      "buck",
+    )
     mkdir_p bin
     bin.env_script_all_files(libexec/"bin",
       JAVA_HOME: "/opt/homebrew/.sdkman/candidates/java/current")
