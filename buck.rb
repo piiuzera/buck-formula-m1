@@ -53,7 +53,7 @@ class Buck < Formula
       "buck",
     )
     bin.env_script_all_files(libexec/"bin",
-      JAVA_HOME: "/opt/homebrew/.sdkman/candidates/java/current"
+      JAVA_HOME: "/opt/homebrew/.sdkman/candidates/java/current")
   end
 
   test do
