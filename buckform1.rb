@@ -6,7 +6,7 @@
 
 # frozen_string_literal: true
 
-class BuckForM1 < Formula
+class Buckform1 < Formula
   BUCK_VERSION = "2021.01.12.01"
   BUCK_RELEASE_TIMESTAMP = "1610431978"
   desc "Facebook's Buck build system"
