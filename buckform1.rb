@@ -20,6 +20,7 @@ class BuckForM1 < Formula
   bottle do
     root_url "https://github.com/facebook/buck/releases/download/v#{BUCK_VERSION}"
     sha256 cellar: :any_skip_relocation, yosemite: "84ed6c26e1796170bb1733c6ef8638099405a5007fc832d937a7c1e03ee337e2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c89e86e8a8355f6bc921afe8218a3cb1138c896a97e3168cf5dd220b07d8d1b5"
   end
 
   depends_on "ant@1.9"
@@ -40,6 +41,7 @@ class BuckForM1 < Formula
     touch "ant-out/successful-build"
     # Now, build the Buck PEX archive with the Buck bootstrap.
     ohai "Building buck with buck"
+    mkdir_p bin
     system(
       "./bin/buck",
       "build",
@@ -47,7 +49,6 @@ class BuckForM1 < Formula
       "#{bin}/buck",
       "buck",
     )
-    mkdir_p bin
     bin.env_script_all_files(libexec/"bin",
       JAVA_HOME: "/opt/homebrew/.sdkman/candidates/java/current")
   end
