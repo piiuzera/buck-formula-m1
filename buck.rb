@@ -43,10 +43,6 @@ class Buck < Formula
     system(
       "./bin/buck",
       "build",
-      "-c",
-      "buck.release_version=#{BUCK_VERSION}",
-      "-c",
-      "buck.release_timestamp=#{BUCK_RELEASE_TIMESTAMP}",
       "--out",
       "#{bin}/buck",
       "buck",
